@@ -22,6 +22,18 @@ enum custom_keycodes {
     NIKO_UC_PERC,              // U+0025 -> %
     NIKO_UC_CIRC,              // U+005E -> ^
     NIKO_UC_AMPR,              // U+0026 -> &
+    NIKO_UC_LCBR,              // U+007B -> {
+    NIKO_UC_RCBR,              // U+007D -> }
+    NIKO_UC_GRV,               // U+0060 -> `
+    NIKO_UC_TILD,              // U+007E -> ~
+    NIKO_UC_EXLM,              // U+0021 -> !
+    NIKO_UC_ASTR,              // U+002A -> *
+    NIKO_UC_MINS,              // U+002D -> -
+    NIKO_UC_UNDS,              // U+005F -> _
+    NIKO_UC_EQL,               // U+003D -> =
+    NIKO_UC_PLUS,              // U+002B -> +
+    NIKO_UC_LPRN,              // U+0028 -> (
+    NIKO_UC_RPRN,              // U+0029 -> )
 };
 
 void tap_numpad_key(uint8_t digit) {
@@ -125,6 +137,42 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case NIKO_UC_AMPR:
                 send_alt_numpad_code(38);
                 return false;
+            case NIKO_UC_LCBR:
+                send_alt_numpad_code(123);
+                return false;
+            case NIKO_UC_RCBR:
+                send_alt_numpad_code(125);
+                return false;
+            case NIKO_UC_GRV:
+                send_alt_numpad_code(96);
+                return false;
+            case NIKO_UC_TILD:
+                send_alt_numpad_code(126);
+                return false;
+            case NIKO_UC_EXLM:
+                send_alt_numpad_code(33);
+                return false;
+            case NIKO_UC_ASTR:
+                send_alt_numpad_code(42);
+                return false;
+            case NIKO_UC_MINS:
+                send_alt_numpad_code(45);
+                return false;
+            case NIKO_UC_UNDS:
+                send_alt_numpad_code(95);
+                return false;
+            case NIKO_UC_EQL:
+                send_alt_numpad_code(61);
+                return false;
+            case NIKO_UC_PLUS:
+                send_alt_numpad_code(43);
+                return false;
+            case NIKO_UC_LPRN:
+                send_alt_numpad_code(40);
+                return false;
+            case NIKO_UC_RPRN:
+                send_alt_numpad_code(41);
+                return false;
         }
     }
     return true;
@@ -132,34 +180,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
-        QK_GESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_MPLY,        KC_MPLY, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
-        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    NIKO_UC_LBRC,
-        KC_CAPS,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-        LCTL_T(KC_LEFT), KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_DOWN,        KC_UP,   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RCTL_T(KC_RGHT),
-                                   TG(3), TG(2),   TG(1), LSFT_T(KC_SPC), RSFT_T(KC_ENT),   KC_RALT, TG(1), RGUI_T(KC_BSPC)
+    QK_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    XXXXXXX,        XXXXXXX, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+    KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX,        XXXXXXX, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+                      KC_LGUI, KC_SPC,  MO(1),   KC_LCTL,                 KC_LALT, MO(2),   KC_ENT,  XXXXXXX
     ),
 
     [1] = LAYOUT(
-        TG(3), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,        _______, KC_CIRC, KC_KP_7, KC_KP_8, KC_KP_9, XXXXXXX, XXXXXXX,
-        _______, XXXXXXX, KC_UP,   XXXXXXX, XXXXXXX, XXXXXXX,                          KC_HASH, KC_KP_4, KC_KP_5, KC_KP_6, XXXXXXX, XXXXXXX,
-        XXXXXXX, KC_LEFT, KC_DOWN, NIKO_UC_COMM ,NIKO_UC_LBRC, NIKO_UC_RBRC,                          KC_AMPR, KC_KP_1, KC_KP_2, KC_KP_3, XXXXXXX, XXXXXXX,
-        _______, XXXXXXX, KC_PAST, KC_PPLS, KC_PSLS, KC_EQL,  _______,        _______, KC_DLR,  KC_KP_0, KC_PDOT, KC_COLN, KC_PMNS, _______,
-                                   _______, _______, _______, _______,        _______, _______, _______, _______ 
+        XXXXXXX, XXXXXXX,      XXXXXXX,      NIKO_UC_NUMO, XXXXXXX,      XXXXXXX,      XXXXXXX,                XXXXXXX, XXXXXXX,       XXXXXXX,       XXXXXXX,       NIKO_UC_LCBR,  NIKO_UC_RCBR,  XXXXXXX,
+        XXXXXXX, NIKO_UC_EXLM, NIKO_UC_AT,   NIKO_UC_HASH, NIKO_UC_DLR,  NIKO_UC_PERC,                                  XXXXXXX,       NIKO_UC_LPRN,  NIKO_UC_RPRN,  NIKO_UC_LBRC,  NIKO_UC_RBRC,  XXXXXXX,
+        XXXXXXX, NIKO_UC_PLUS, NIKO_UC_MINS, NIKO_UC_ASTR, NIKO_UC_SLSH, NIKO_UC_BSLS,                                  NIKO_UC_GRV,   NIKO_UC_QUOT,  NIKO_UC_DQUO,  NIKO_UC_COLN,  NIKO_UC_SCLN,  XXXXXXX,
+        XXXXXXX, XXXXXXX,      NIKO_UC_PIPE, NIKO_UC_AMPR, NIKO_UC_UNDS, XXXXXXX,      XXXXXXX,        XXXXXXX,       NIKO_UC_LCBR,  NIKO_UC_RCBR,  NIKO_UC_COMM,    NIKO_UC_DOT,   NIKO_UC_QUES,  XXXXXXX,
+                            XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                       XXXXXXX, MO(3),         XXXXXXX,       XXXXXXX
     ),
 
     [2] = LAYOUT(
-        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,        _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
+          KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6, _______,        _______, KC_F7,     KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
         _______, _______, _______, _______, _______, _______,                          _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______,                          _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______,        _______, _______, _______, _______, _______, _______, _______,
-                                            _______, _______, _______,        _______, _______, _______, _______, _______
+        _______, _______, _______, _______, _______, _______,                          _______, KC_LEFT, KC_RGHT, KC_DOWN, KC_UP,   _______,
+        KC_LSFT, _______, _______, _______, _______, _______, _______,        _______, _______, KC_HOME, KC_END,  KC_PGDN, KC_PGUP, KC_RSFT,
+                                   _______, KC_SPC, MO(3),   KC_LCTL,         KC_LALT, _______, KC_ENT, _______
     ),
 
     [3] = LAYOUT(
-        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, NK_TOGG, AC_TOGG, _______,        _______, XXXXXXX, XXXXXXX, XXXXXXX, UG_NEXT, UG_SATU, UG_TOGG,
-        QK_RBT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                          XXXXXXX, XXXXXXX, XXXXXXX,  UG_PREV, UG_SATD, RGB_M_P,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_CAPS,                          XXXXXXX, XXXXXXX, XXXXXXX, UG_HUEU, UG_VALU, RGB_M_B,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, UG_HUED, UG_VALD, RGB_M_R,
+        QK_BOOT, _______, _______, _______, _______, _______, _______,        _______, _______, _______, _______, _______, _______, QK_BOOT,
+        _______, _______, _______, _______, _______, _______,                          _______, _______, _______,  _______, _______, _______,
+        _______, _______, _______, _______, _______, _______,                          _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______,        _______, _______, _______, _______, _______, _______, _______,
                                    _______, _______, _______, _______,        _______, _______, _______, _______ 
     )
 };
