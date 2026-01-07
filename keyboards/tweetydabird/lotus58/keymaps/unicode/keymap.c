@@ -35,6 +35,8 @@ enum custom_keycodes {
     NIKO_UC_LPRN,              // U+0028 -> (
     NIKO_UC_RPRN,              // U+0029 -> )
     NIKO_CHNG_LNG,             // LGUI + Space (Change Language)
+    NIKO_UC_LT,                // U+003C -> <
+    NIKO_UC_GT,                // U+003E -> >
 };
 
 void tap_numpad_key(uint8_t digit) {
@@ -179,6 +181,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code(KC_SPC);
                 unregister_code(KC_LGUI);
                 return false;
+            case NIKO_UC_LT:
+                send_alt_numpad_code(60);
+                return false;
+            case NIKO_UC_GT:
+                send_alt_numpad_code(62);
+                return false;
         }
     }
     return true;
@@ -222,9 +230,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------.                    ,-----------------------------------------.
      * |XXXXXX|XXXXXX|XXXXXX|  №   |XXXXXX|XXXXXX|XXXXXX|    |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|   !  |   @  |   #  |   $  |   %  |------|    |------|XXXXXX|   (  |   )  |   [  |   ]  |XXXXXX|
+     * |XXXXXX|   !  |   @  |   #  |   $  |   %  |------|    |------|XXXXXX|   (  |   )  |   [  |   ]  |   >  |
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|   +  |   -  |   *  |   /  |   \  |------|    |------|   `  |   '  |   "  |   :  |   ;  |XXXXXX|
+     * |XXXXXX|   +  |   -  |   *  |   /  |   \  |------|    |------|   `  |   '  |   "  |   :  |   ;  |   <  |
      * |------+------+------+------+------+------|XXXXXX|    |XXXXXX|------+------+------+------+------+------|
      * |XXXXXX|XXXXXX|   |  |   &  |   _  |   =  |------|    |------|   {  |   }  |   ,  |   .  |   ?  |XXXXXX|
      * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -234,8 +242,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [1] = LAYOUT(
         XXXXXXX, XXXXXXX,      XXXXXXX,      NIKO_UC_NUMO, XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX, XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,       XXXXXXX,       XXXXXXX,
-        XXXXXXX, NIKO_UC_EXLM, NIKO_UC_AT,   NIKO_UC_HASH, NIKO_UC_DLR,  NIKO_UC_PERC,                          XXXXXXX,      NIKO_UC_LPRN, NIKO_UC_RPRN, NIKO_UC_LBRC,  NIKO_UC_RBRC,  XXXXXXX,
-        XXXXXXX, NIKO_UC_PLUS, NIKO_UC_MINS, NIKO_UC_ASTR, NIKO_UC_SLSH, NIKO_UC_BSLS,                          NIKO_UC_GRV,  NIKO_UC_QUOT, NIKO_UC_DQUO, NIKO_UC_COLN,  NIKO_UC_SCLN,  XXXXXXX,
+        XXXXXXX, NIKO_UC_EXLM, NIKO_UC_AT,   NIKO_UC_HASH, NIKO_UC_DLR,  NIKO_UC_PERC,                          XXXXXXX,      NIKO_UC_LPRN, NIKO_UC_RPRN, NIKO_UC_LBRC,  NIKO_UC_RBRC,  NIKO_UC_GT,
+        XXXXXXX, NIKO_UC_PLUS, NIKO_UC_MINS, NIKO_UC_ASTR, NIKO_UC_SLSH, NIKO_UC_BSLS,                          NIKO_UC_GRV,  NIKO_UC_QUOT, NIKO_UC_DQUO, NIKO_UC_COLN,  NIKO_UC_SCLN,  NIKO_UC_LT,
         XXXXXXX, XXXXXXX,      NIKO_UC_PIPE, NIKO_UC_AMPR, NIKO_UC_UNDS, NIKO_UC_EQL,      XXXXXXX,        XXXXXXX, NIKO_UC_LCBR, NIKO_UC_RCBR, NIKO_UC_COMM, NIKO_UC_DOT,   NIKO_UC_QUES,  XXXXXXX,
                                             XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                   XXXXXXX,      MO(3),        KC_LGUI,      XXXXXXX
     ),
