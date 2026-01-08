@@ -232,7 +232,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------.                    ,-----------------------------------------.
      * |XXXXXX|XXXXXX|XXXXXX|  №   |XXXXXX|XXXXXX|XXXXXX|    |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|   !  |   @  |   #  |   $  |   %  |------|    |------|XXXXXX|   (  |   )  |   [  |   ]  |   >  |
+     * |XXXXXX|   !  |   @  |   #  |   $  |   %  |------|    |------|   ~  |   (  |   )  |   [  |   ]  |   >  |
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
      * |XXXXXX|   +  |   -  |   *  |   /  |   \  |------|    |------|   `  |   '  |   "  |   :  |   ;  |   <  |
      * |------+------+------+------+------+------|XXXXXX|    |XXXXXX|------+------+------+------+------+------|
@@ -244,7 +244,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [1] = LAYOUT(
         XXXXXXX, XXXXXXX,      XXXXXXX,      NIKO_UC_NUMO, XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX, XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,       XXXXXXX,       XXXXXXX,
-        XXXXXXX, NIKO_UC_EXLM, NIKO_UC_AT,   NIKO_UC_HASH, NIKO_UC_DLR,  NIKO_UC_PERC,                          XXXXXXX,      NIKO_UC_LPRN, NIKO_UC_RPRN, NIKO_UC_LBRC,  NIKO_UC_RBRC,  NIKO_UC_GT,
+        XXXXXXX, NIKO_UC_EXLM, NIKO_UC_AT,   NIKO_UC_HASH, NIKO_UC_DLR,  NIKO_UC_PERC,                          NIKO_UC_TILD,      NIKO_UC_LPRN, NIKO_UC_RPRN, NIKO_UC_LBRC,  NIKO_UC_RBRC,  NIKO_UC_GT,
         XXXXXXX, NIKO_UC_PLUS, NIKO_UC_MINS, NIKO_UC_ASTR, NIKO_UC_SLSH, NIKO_UC_BSLS,                          NIKO_UC_GRV,  NIKO_UC_QUOT, NIKO_UC_DQUO, NIKO_UC_COLN,  NIKO_UC_SCLN,  NIKO_UC_LT,
         XXXXXXX, XXXXXXX,      NIKO_UC_PIPE, NIKO_UC_AMPR, NIKO_UC_UNDS, NIKO_UC_EQL,      XXXXXXX,        XXXXXXX, NIKO_UC_LCBR, NIKO_UC_RCBR, NIKO_UC_COMM, NIKO_UC_DOT,   NIKO_UC_QUES,  XXXXXXX,
                                             XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                   KC_CAPS,      MO(3),        KC_LGUI,      XXXXXXX
