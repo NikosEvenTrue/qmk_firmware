@@ -323,12 +323,15 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 #endif
 
 #ifdef OLED_ENABLE
+
 static void print_status_narrow(void) {
     // Create OLED content
     oled_write_P(PSTR("\n"), false);
     oled_write_P(PSTR(""), false);
     oled_write_P(PSTR("Lotus -58-"), false);
     oled_write_P(PSTR("\n"), false);
+
+
 
     // Print current layer
     oled_write_P(PSTR("Layer"), false);
@@ -348,26 +351,143 @@ static void print_status_narrow(void) {
         default:
             oled_write_P(PSTR("Undef"), false);
     }
-    
+
     oled_write_P(PSTR("\n"), false);
     led_t led_usb_state = host_keyboard_led_state();
     oled_write_ln_P(PSTR("Caps- lock"), led_usb_state.caps_lock);
-    
-#ifdef AUTO_SHIFT_ENABLE
 
+#ifdef AUTO_SHIFT_ENABLE
     bool autoshift = get_autoshift_state();
     oled_advance_page(true);
     oled_write_P(PSTR("Auto-Shift"), autoshift);
     oled_advance_page(true);
-    
 #endif
+}
 
-    
+// Function to "draw" large layer numbers on the slave OLED
+static void print_large_layer_number(void) {
+    switch (get_highest_layer(layer_state)) {
+        case 0:
+            oled_write_ln_P(PSTR("#####"), false);
+            oled_write_ln_P(PSTR("#   #"), false);
+            oled_write_ln_P(PSTR("#   #"), false);
+            oled_write_ln_P(PSTR("#   #"), false);
+            oled_write_ln_P(PSTR("#   #"), false);
+            oled_write_ln_P(PSTR("#   #"), false);
+            oled_write_ln_P(PSTR("#   #"), false);
+            oled_write_ln_P(PSTR("#####"), false);
+            break;
+        case 1:
+            oled_write_ln_P(PSTR("  #  "), false);
+            oled_write_ln_P(PSTR(" ##  "), false);
+            oled_write_ln_P(PSTR("# #  "), false);
+            oled_write_ln_P(PSTR("  #  "), false);
+            oled_write_ln_P(PSTR("  #  "), false);
+            oled_write_ln_P(PSTR("  #  "), false);
+            oled_write_ln_P(PSTR("  #  "), false);
+            oled_write_ln_P(PSTR("#####"), false);
+            break;
+        case 2:
+            oled_write_ln_P(PSTR("#####"), false);
+            oled_write_ln_P(PSTR("    #"), false);
+            oled_write_ln_P(PSTR("    #"), false);
+            oled_write_ln_P(PSTR("#####"), false);
+            oled_write_ln_P(PSTR("#    "), false);
+            oled_write_ln_P(PSTR("#    "), false);
+            oled_write_ln_P(PSTR("#    "), false);
+            oled_write_ln_P(PSTR("#####"), false);
+            break;
+        case 3:
+            oled_write_ln_P(PSTR("#####"), false);
+            oled_write_ln_P(PSTR("    #"), false);
+            oled_write_ln_P(PSTR("    #"), false);
+            oled_write_ln_P(PSTR("#####"), false);
+            oled_write_ln_P(PSTR("    #"), false);
+            oled_write_ln_P(PSTR("    #"), false);
+            oled_write_ln_P(PSTR("    #"), false);
+            oled_write_ln_P(PSTR("#####"), false);
+            break;
+        // case 4:
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     oled_write_ln_P(PSTR("    #"), false);
+        //     oled_write_ln_P(PSTR("    #"), false);
+        //     oled_write_ln_P(PSTR("    #"), false);
+        //     oled_write_ln_P(PSTR("    #"), false);
+        //     break;
+        // case 5:
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     oled_write_ln_P(PSTR("#    "), false);
+        //     oled_write_ln_P(PSTR("#    "), false);
+        //     oled_write_ln_P(PSTR("#### "), false);
+        //     oled_write_ln_P(PSTR("    #"), false);
+        //     oled_write_ln_P(PSTR("    #"), false);
+        //     oled_write_ln_P(PSTR("    #"), false);
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     break;
+        // case 6:
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     oled_write_ln_P(PSTR("#    "), false);
+        //     oled_write_ln_P(PSTR("#    "), false);
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     break;
+        // case 7:
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     oled_write_ln_P(PSTR("    #"), false);
+        //     oled_write_ln_P(PSTR("   # "), false);
+        //     oled_write_ln_P(PSTR("  #  "), false);
+        //     oled_write_ln_P(PSTR(" #   "), false);
+        //     oled_write_ln_P(PSTR("#    "), false);
+        //     oled_write_ln_P(PSTR("#    "), false);
+        //     oled_write_ln_P(PSTR("#    "), false);
+        //     break;
+        // case 8:
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     break;
+        // case 9:
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#   #"), false);
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     oled_write_ln_P(PSTR("    #"), false);
+        //     oled_write_ln_P(PSTR("    #"), false);
+        //     oled_write_ln_P(PSTR("    #"), false);
+        //     oled_write_ln_P(PSTR("#####"), false);
+        //     break;
+        default:
+            oled_write_ln_P(PSTR("?????"), false);
+            oled_write_ln_P(PSTR("    ?"), false);
+            oled_write_ln_P(PSTR("    ?"), false);
+            oled_write_ln_P(PSTR("   ? "), false);
+            oled_write_ln_P(PSTR("  ?  "), false);
+            oled_write_ln_P(PSTR("  ?  "), false);
+            oled_write_ln_P(PSTR("     "), false);
+            oled_write_ln_P(PSTR("  ?  "), false);
+            break;
+    }
 }
 
 bool oled_task_user(void) {
-    // Render the OLED
-    print_status_narrow();
+    if (is_keyboard_master()) {
+        // Render the master OLED with standard info
+        print_status_narrow();
+    } else {
+        // Render the slave OLED with the large layer number
+        print_large_layer_number();
+    }
     return false;
 }
 
