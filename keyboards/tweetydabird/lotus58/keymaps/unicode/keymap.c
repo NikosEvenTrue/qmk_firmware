@@ -209,12 +209,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM b_softsign_combo[] = {KC_COMM, KC_M, COMBO_END};
 const uint16_t PROGMEM ru_x_combo[] = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM ru_yo_combo[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM grv_combo[] = {NIKO_UC_QUOT, NIKO_UC_DQUO, COMBO_END};
+const uint16_t PROGMEM tild_combo[] = {NIKO_UC_LPRN, NIKO_UC_RPRN, COMBO_END};
 
 // Defines the combos themselves
 combo_t key_combos[] = {
     COMBO(b_softsign_combo, KC_RBRC),
     COMBO(ru_x_combo, KC_LBRC),
-    COMBO(ru_yo_combo, KC_GRV)
+    COMBO(ru_yo_combo, KC_GRV),
+    COMBO(grv_combo, NIKO_UC_GRV),
+    COMBO(tild_combo, NIKO_UC_TILD)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -246,23 +250,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * Layer 1 - Symbols Layer
      * ,-----------------------------------------.                    ,-----------------------------------------.
-     * | NUM  |XXXXXX|XXXXXX|  №   |XXXXXX|XXXXXX|XXXXXX|    |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
+     * | NUM  |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|    |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|   !  |   @  |   #  |   $  |   %  |------|    |------|   ~  |   (  |   )  |   [  |   ]  |   >  |
+     * |XXXXXX|   !  |   @  |   #  |   $  |   %  |------|    |------|   {  |  (  [~]  )  |   [  |   ]  |XXXXXX|
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|   +  |   -  |   *  |   /  |   \  |------|    |------|   `  |   '  |   "  |   :  |   ;  |   <  |
+     * |XXXXXX|   +  |   -  |   *  |   /  |   \  |------|    |------|   }  |  '  [`]  "  |   :  |   ;  |XXXXXX|
      * |------+------+------+------+------+------|XXXXXX|    |XXXXXX|------+------+------+------+------+------|
-     * |XXXXXX|XXXXXX|   |  |   &  |   _  |   =  |------|    |------|   {  |   }  |   ,  |   .  |   ?  |XXXXXX|
+     * |XXXXXX|   №  |   |  |   &  |   _  |   =  |------|    |------|   <  |   >  |   ,  |   .  |   ?  |XXXXXX|
      * `-----------------------------------------/       /     \      \-----------------------------------------'
      *                  |XXXXXX|XXXXXX|XXXXXX|XXXXXX| /       /       \      \ | DEL  | CAPS | ChngLng |XXXXXX|
      *                  |      |      |      |      |/       /         \      \|      |      |         |      |
      *                  `------------------------------------'           '------''---------------------------'
      */
     [1] = LAYOUT(
-        KC_NUM,  XXXXXXX,      XXXXXXX,      NIKO_UC_NUMO, XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX, XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,       XXXXXXX,       XXXXXXX,
-        XXXXXXX, NIKO_UC_EXLM, NIKO_UC_AT,   NIKO_UC_HASH, NIKO_UC_DLR,  NIKO_UC_PERC,                          NIKO_UC_TILD,      NIKO_UC_LPRN, NIKO_UC_RPRN, NIKO_UC_LBRC,  NIKO_UC_RBRC,  NIKO_UC_GT,
-        XXXXXXX, NIKO_UC_PLUS, NIKO_UC_MINS, NIKO_UC_ASTR, NIKO_UC_SLSH, NIKO_UC_BSLS,                          NIKO_UC_GRV,  NIKO_UC_QUOT, NIKO_UC_DQUO, NIKO_UC_COLN,  NIKO_UC_SCLN,  NIKO_UC_LT,
-        XXXXXXX, XXXXXXX,      NIKO_UC_PIPE, NIKO_UC_AMPR, NIKO_UC_UNDS, NIKO_UC_EQL,      XXXXXXX,        XXXXXXX, NIKO_UC_LCBR, NIKO_UC_RCBR, NIKO_UC_COMM, NIKO_UC_DOT,   NIKO_UC_QUES,  XXXXXXX,
+        KC_NUM,  XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX, XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,       XXXXXXX,       XXXXXXX,
+        XXXXXXX, NIKO_UC_EXLM, NIKO_UC_AT,   NIKO_UC_HASH, NIKO_UC_DLR,  NIKO_UC_PERC,                          NIKO_UC_LCBR,  NIKO_UC_LPRN, NIKO_UC_RPRN, NIKO_UC_LBRC,  NIKO_UC_RBRC,  NIKO_UC_GT,
+        XXXXXXX, NIKO_UC_PLUS, NIKO_UC_MINS, NIKO_UC_ASTR, NIKO_UC_SLSH, NIKO_UC_BSLS,                          NIKO_UC_RCBR,  NIKO_UC_QUOT, NIKO_UC_DQUO, NIKO_UC_COLN,  NIKO_UC_SCLN,  NIKO_UC_LT,
+        XXXXXXX, NIKO_UC_NUMO,      NIKO_UC_PIPE, NIKO_UC_AMPR, NIKO_UC_UNDS, NIKO_UC_EQL,      XXXXXXX,        XXXXXXX, NIKO_UC_LT, NIKO_UC_GT, NIKO_UC_COMM, NIKO_UC_DOT,   NIKO_UC_QUES,  XXXXXXX,
                                             XXXXXXX,      XXXXXXX,      XXXXXXX,   XXXXXXX,                   KC_DEL, KC_CAPS,   NIKO_CHNG_LNG,      XXXXXXX
     ),
 
