@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     /*
-* Layer 2 - Navigation & Funct1ion Keys
+* Layer 2 - Navigation layer
      * ,-----------------------------------------.                    ,-----------------------------------------.
      * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |XXXXXX|    |XXXXXX|  F7  |  F8  |  F9  | F10  | F11  | F12  |
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
@@ -110,7 +110,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     /*
-     * Layer 3 - Reset Layer
+     * Layer 3 - Function keys layer
+     * ,-----------------------------------------.                    ,-----------------------------------------.
+     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|    |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
+     * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
+     * |XXXXXX|  F1  |  F2  |  F3  |  F4  |  F5  |------|    |------|  F6  |  F7  |  F8  |  F9  | F10  |XXXXXX|
+     * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
+     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|------|    |------|  F11 |  F12 |XXXXXX|XXXXXX|XXXXXX|XXXXXX|
+     * |------+------+------+------+------+------|XXXXXX|    |XXXXXX|------+------+------+------+------+------|
+     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|------|    |------|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
+     * `-----------------------------------------/       /     \      \-----------------------------------------'
+     *                  |XXXXXX|XXXXXX|XXXXXX|XXXXXX| /       /       \      \ |XXXXXX|XXXXXX| TO(4)|XXXXXX|
+     *                  |      |      |      |      |/       /         \      \|      |      |      |      |
+     *                  `------------------------------------'           '------''---------------------------'
+     */
+    [3] = LAYOUT(
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10, XXXXXXX, 
+        XXXXXXX, MT(MOD_LGUI, XXXXXXX), MT(MOD_LALT, XXXXXXX), MT(MOD_LCTL, XXXXXXX),  MT(MOD_LSFT, XXXXXXX), XXXXXXX,                         KC_F11, MT(MOD_RSFT, KC_F12), MT(MOD_LCTL, XXXXXXX), MT(MOD_LALT, XXXXXXX), MT(MOD_LGUI, XXXXXXX),   XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, TO(4), XXXXXXX
+    ),
+    /*
+* Layer 4 - System layer
      * ,-----------------------------------------.                    ,-----------------------------------------.
      * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|    |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
@@ -120,16 +142,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+------|XXXXXX|    |XXXXXX|------+------+------+------+------+------|
      * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|------|    |------|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
      * `-----------------------------------------/       /     \      \-----------------------------------------'
-     *                  |XXXXXX|XXXXXX|XXXXXX|XXXXXX| /       /       \      \ |XXXXXX|XXXXXX|XXXXXX|XXXXXX|
+     *                  |XXXXXX|XXXXXX|XXXXXX|XXXXXX| /       /       \      \ |XXXXXX|XXXXXX| TO(0)|XXXXXX|
      *                  |      |      |      |      |/       /         \      \|      |      |      |      |
      *                  `------------------------------------'           '------''---------------------------'
      */
-    [3] = LAYOUT(
+    [4] = LAYOUT(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_SLEP, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+                                            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, TO(0), XXXXXXX
     )
 };
 
@@ -138,7 +160,8 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [0] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
     [1] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(MS_WHLD, MS_WHLU) },
     [2] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
-    [3] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) }
+    [3] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) },
+    [4] = { ENCODER_CCW_CW(KC_TRNS, KC_TRNS), ENCODER_CCW_CW(KC_TRNS, KC_TRNS) }
 };
 #endif
 
@@ -157,6 +180,9 @@ static void print_status_narrow(void) {
             oled_write_P(PSTR("-Nav \n"), false);
             break;
         case 3:
+            oled_write_P(PSTR("-Func \n"), false);
+            break;
+        case 4:
             oled_write_P(PSTR("-Sys \n"), false);
             break;
         default:
@@ -213,16 +239,16 @@ static void print_large_layer_number(void) {
             oled_write_ln_P(PSTR("    #"), false);
             oled_write_ln_P(PSTR("#####"), false);
             break;
-        // case 4:
-        //     oled_write_ln_P(PSTR("#   #"), false);
-        //     oled_write_ln_P(PSTR("#   #"), false);
-        //     oled_write_ln_P(PSTR("#   #"), false);
-        //     oled_write_ln_P(PSTR("#####"), false);
-        //     oled_write_ln_P(PSTR("    #"), false);
-        //     oled_write_ln_P(PSTR("    #"), false);
-        //     oled_write_ln_P(PSTR("    #"), false);
-        //     oled_write_ln_P(PSTR("    #"), false);
-        //     break;
+        case 4:
+            oled_write_ln_P(PSTR("#   #"), false);
+            oled_write_ln_P(PSTR("#   #"), false);
+            oled_write_ln_P(PSTR("#   #"), false);
+            oled_write_ln_P(PSTR("#####"), false);
+            oled_write_ln_P(PSTR("    #"), false);
+            oled_write_ln_P(PSTR("    #"), false);
+            oled_write_ln_P(PSTR("    #"), false);
+            oled_write_ln_P(PSTR("    #"), false);
+            break;
         // case 5:
         //     oled_write_ln_P(PSTR("#####"), false);
         //     oled_write_ln_P(PSTR("#    "), false);
