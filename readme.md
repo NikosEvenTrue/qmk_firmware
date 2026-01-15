@@ -1,3 +1,10 @@
+# Nikoseven
+
+This is fork for my uniq layouts.
+
+## Layouts:
+- [lotus58](https://github.com/NikosEvenTrue/qmk_firmware/tree/master/keyboards/tweetydabird/lotus58/keymaps/unicode)
+
 # Quantum Mechanical Keyboard Firmware
 
 [![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
