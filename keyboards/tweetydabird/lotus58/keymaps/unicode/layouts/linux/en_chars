@@ -39,7 +39,7 @@ xkb_symbols "basic" {
     key <AC03> { [ d,            D,           asterisk,     NoSymbol     ] };
     key <AC04> { [ f,            F,           slash,        NoSymbol     ] };
     key <AC05> { [ g,            G,           backslash,    NoSymbol     ] };
-    key <AC06> { [ h,            H,           bracketright, NoSymbol     ] };
+    key <AC06> { [ h,            H,           braceright,   NoSymbol     ] };
     key <AC07> { [ j,            J,           apostrophe,   NoSymbol     ] };
     key <AC08> { [ k,            K,           quotedbl,     NoSymbol     ] };
     key <AC09> { [ l,            L,           colon,        NoSymbol     ] };
@@ -48,7 +48,7 @@ xkb_symbols "basic" {
     key <BKSL> { [ NoSymbol,     NoSymbol,    NoSymbol,     NoSymbol     ] };
     
     // Третий буквенный ряд (ZXCV)
-    key <AB01> { [ y,            Y,           numerosign,   NoSymbol     ] };
+    key <AB01> { [ z,            Z,           numerosign,   NoSymbol     ] };
     key <AB02> { [ x,            X,           bar,          NoSymbol     ] };
     key <AB03> { [ c,            C,           ampersand,    NoSymbol     ] };
     key <AB04> { [ v,            V,           underscore,   NoSymbol     ] };
