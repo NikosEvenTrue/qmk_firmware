@@ -24,7 +24,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 const uint16_t PROGMEM b_softsign_combo[] = {KC_COMM, KC_M, COMBO_END};
-const uint16_t PROGMEM ru_x_combo[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM ru_x_combo[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM ru_yo_combo[] = {KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM back_slash_combo[] = {RALT(KC_D), RALT(KC_F), COMBO_END};
 
@@ -39,23 +39,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * Layer 0 - Base Layer
      * ,-----------------------------------------.                    ,-----------------------------------------.
-     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|    |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
+     * |XXXXXX|  1   |  2   |  3   |  4   |  5   |XXXXXX|    |XXXXXX|  6   |  7   |  8   |  9   |  0   |XXXXXX|
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|   Q  |   W  |  E   |   R  |   T  |------|    |------|   Y  |   U  |   I  |  O   |   P  |XXXXXX|
-     * |      |   й  |   ц  |  у  [ё]  к  |   е  |      |    |      |   н  |   г  |   ш  |  щ  [х]  з  |      |
+     * | Esc  |   Q  |   W  |  E   |   R  |   T  |------|    |------|   Y  |  U   |   I  |   O  |   P  | Caps |
+     * |      |   й  |   ц  |  у  [ё]  к  |   е  |      |    |      |   н  |  г  [х]  ш  |   щ  |   з  |      |
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|   A  |   S  |   D  |   F  |   G  |------|    |------|   H  |   J  |   K  |   L  |      |XXXXXX|
+     * | MO(1)|   A  |   S  |   D  |   F  |   G  |------|    |------|   H  |   J  |   K  |   L  |      | MO(1)|
      * |      |   ф  |   ы  |   в  |   а  |   п  |      |    |      |   р  |   о  |   л  |   д  |   ж  |      |
      * |------+------+------+------+------+------|XXXXXX|    |XXXXXX|------+------+------+------+------+------|
      * |XXXXXX|   Z  |   X  |   C  |   V  |   B  |------|    |------|   N  |  M   |      |      |      |XXXXXX|
-     * |      |   я  |   ч  |   с  |   м  |   и  |      |    |      |   т  |  ь  [ъ]  б  |   ю  |   э  |      |
+     * |      |   я  |   ч  |   с  |   м  |   и  |      |    |      |   т  |  ь  [ъ]  б  |   ю  |   э  |      | 
      * `----------------------------------------/       /     \      \-----------------------------------------'
-     *                 |XXXXXX| Tab | MO(1) | Space |  /      /       \      \ | Bspc | MO(2) | Enter |XXXXXX|
+     *                 |XXXXXX| Tab | MO(2) | Space |  /      /       \      \ | Bspc | MO(2) | Enter |XXXXXX|
      *                 `------------------------------------'           '------''---------------------------'
      */ 
     [0] = LAYOUT(
         XXXXXXX, KC_1, KC_2, KC_3, KC_4, KC_5,             XXXXXXX,                    XXXXXXX, KC_6, KC_7, KC_8,  KC_9, KC_0, XXXXXXX,
-        KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_CAPS,
+        KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                    KC_Y,    KC_U,  KC_I,    KC_O,    KC_P,    KC_CAPS,
         MO(1),  MT(MOD_RGUI, KC_A),    MT(MOD_LALT, KC_S),    MT(MOD_LCTL, KC_D),             MT(MOD_LSFT, KC_F), KC_G, KC_H, MT(MOD_RSFT, KC_J), MT(MOD_LCTL, KC_K), MT(MOD_LALT, KC_L), MT(MOD_RGUI, KC_SCLN), MO(1),
         XXXXXXX, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX,               KC_MPLY, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
                                             XXXXXXX, KC_TAB,  MO(2),   KC_SPC,                KC_BSPC,  MO(2),   KC_ENT, XXXXXXX
@@ -64,46 +64,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * Layer 1 - Symbols Layer
      * ,-----------------------------------------.                    ,-----------------------------------------.
-     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|    |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
+     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|    |XXXXXX|XXXXXX|  <   |   >  |   {  |   }  |XXXXXX|
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|   !  |   @  |   {  |  }   |   %  |------|    |------|   $  |  (   |   )  |   [  |   ]  |XXXXXX|
+     * |XXXXXX|   !  |   @  |   #  |   $  |   %  |------|    |------|   ~  |  (   |   )  |   [  |   ]  |XXXXXX|
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|   +  |   -  |  *   |   <  |  >   |------|    |------|   #  |  '   |   "  |   :  |   ;  |XXXXXX|
+     * |XXXXXX|   _  |   -  |   +  |   =  |   ^  |------|    |------|   `  |  '   |   "  |   :  |   ;  |XXXXXX|
      * |------+------+------+------+------+------|XXXXXX|    |XXXXXX|------+------+------+------+------+------|
-     * |XXXXXX|   `  |   |  |   &  |   _  |   =  |------|    |------|   \  |  /   |   ,  |   .  |   ?  |XXXXXX|
+     * |XXXXXX|XXXXXX|XXXXXX|   &  |   |  |XXXXXX|------|    |------|   \  |  /   |   ,  |   .  |   ?  |XXXXXX|
      * `-----------------------------------------/       /     \      \-----------------------------------------'
-     *                  |XXXXXX|XXXXXX|XXXXXX| Space| /       /       \      \ | Bspc |  ~   | XXXXXX  |XXXXXX|
+     *                  |XXXXXX|XXXXXX|XXXXXX| Space| /       /       \      \ | Bspc |XXXXXX| XXXXXX  |XXXXXX|
      *                  |      |      |      |      |/       /         \      \|      |      |         |      |
      *                  `------------------------------------'           '------''---------------------------'
      */
     [1] = LAYOUT(
-        XXXXXXX,  XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,      XXXXXXX,        XXXXXXX, XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,       XXXXXXX,       XXXXXXX,
-        XXXXXXX, RALT(KC_Q), RALT(KC_W), RALT(KC_Y), RALT(KC_H), RALT(KC_T),                          RALT(KC_R),  RALT(KC_U), RALT(KC_I), RALT(KC_O),  RALT(KC_P),  XXXXXXX,
-        XXXXXXX, RALT(KC_A), RALT(KC_S), RALT(KC_D), RALT(KC_N), RALT(KC_M),                          RALT(KC_E),  RALT(KC_J), RALT(KC_K), RALT(KC_L),  RALT(KC_SCLN),  XXXXXXX,
-        XXXXXXX, RALT(KC_QUOT), RALT(KC_X), RALT(KC_C), RALT(KC_V), RALT(KC_B),      XXXXXXX,        XXXXXXX, RALT(KC_G), RALT(KC_F), RALT(KC_COMM), RALT(KC_DOT),   RALT(KC_SLSH),  XXXXXXX,
-                                            XXXXXXX,      XXXXXXX,      XXXXXXX,   KC_SPC,                   KC_BSPC, RALT(KC_LBRC),   XXXXXXX,      XXXXXXX
+        XXXXXXX,  RALT(KC_1), RALT(KC_2), RALT(KC_3), RALT(KC_4), RALT(KC_5),      XXXXXXX,        XXXXXXX, RALT(KC_6), RALT(KC_7), RALT(KC_8), RALT(KC_9), RALT(KC_0), XXXXXXX,
+        XXXXXXX, RALT(KC_Q), RALT(KC_W), RALT(KC_E), RALT(KC_R), RALT(KC_T),                          RALT(KC_Y),  RALT(KC_U), RALT(KC_I), RALT(KC_O),  RALT(KC_P),  XXXXXXX,
+        XXXXXXX, RALT(KC_A), RALT(KC_S), RALT(KC_D), RALT(KC_F), RALT(KC_G),                          RALT(KC_H),  RALT(KC_J), RALT(KC_K), RALT(KC_L),  RALT(KC_SCLN),  XXXXXXX,
+        XXXXXXX, RALT(KC_Z), RALT(KC_X), RALT(KC_C), RALT(KC_V), RALT(KC_B),      XXXXXXX,        XXXXXXX, RALT(KC_N), RALT(KC_M), RALT(KC_COMM), RALT(KC_DOT),   RALT(KC_SLSH),  XXXXXXX,
+                                            XXXXXXX,      XXXXXXX,      XXXXXXX,   KC_SPC,                   KC_BSPC, XXXXXXX,   XXXXXXX,      XXXXXXX
     ),
 
     /*
 * Layer 2 - Navigation layer
      * ,-----------------------------------------.                    ,-----------------------------------------.
-     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|    |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
+     * |XXXXXX| F11  | F12  | F13  | F14  | F15  |XXXXXX|    |XXXXXX| F16  | F17  | F18  | F19  | F20  |XXXXXX|
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|  1   |  2   |  3   |  4   |  5   |------|    |------|  6   |  7   |  8   |  9   |  0   |XXXXXX|
+     * |XXXXXX|  F1  |  F2  |  F3  |  F4  |  F5  |------|    |------|  F6  |  F7  |  F8  |  F9  | F10  |XXXXXX|
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|------|    |------|XXXXXX| Left | Right| Down |  Up  |XXXXXX|
+     * |XXXXXX|XXXXXX|pl-prv| play |pl-nxt|  +   |------|    |------| Del  | Left | Right| Down |  Up  |XXXXXX|
      * |------+------+------+------+------+------|XXXXXX|    |XXXXXX|------+------+------+------+------+------|
-     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|------|    |------| Del  | Home | End  | PgDn | PgUp |XXXXXX|
+     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|  -   |------|    |------| Menu | Home | End  | PgDn | PgUp |XXXXXX|
      * `-----------------------------------------/       /     \      \-----------------------------------------'
-     *                  |XXXXXX| Esc  | MO(3)| Space| /       /       \      \ | Bcsp | Caps |ChngLng|XXXXXX|
+     *                  |XXXXXX| Esc  | MO(3)| Space| /       /       \      \ | Bcsp | MO(3)|ChngLng|XXXXXX|
      *                  |      |      |      |      |/       /         \      \|      |      |       |      |
      *                  `------------------------------------'           '------''---------------------------'
      */
     [2] = LAYOUT(
         XXXXXXX, KC_F11,   KC_F12,   KC_F13,   KC_F14,   KC_F15,XXXXXXX,        XXXXXXX, KC_F16,   KC_F17,   KC_F18,   KC_F19,   KC_F20, XXXXXXX, 
         XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10, XXXXXXX,
-        XXXXXXX, MT(MOD_RGUI, XXXXXXX), MT(MOD_LALT, KC_MPRV), MT(MOD_LCTL, KC_MPLY),  MT(MOD_LSFT, KC_MNXT), KC_EQL,                          KC_APP, MT(MOD_RSFT, KC_LEFT), MT(MOD_LCTL, KC_RGHT), MT(MOD_LALT, KC_DOWN), MT(MOD_RGUI, KC_UP),   XXXXXXX,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS, XXXXXXX,        XXXXXXX, KC_DEL, KC_HOME, KC_END,  KC_PGDN, KC_PGUP, XXXXXXX,
+        XXXXXXX, MT(MOD_RGUI, XXXXXXX), MT(MOD_LALT, KC_MPRV), MT(MOD_LCTL, KC_MPLY),  MT(MOD_LSFT, KC_MNXT), KC_EQL,                          KC_DEL, MT(MOD_RSFT, KC_LEFT), MT(MOD_LCTL, KC_RGHT), MT(MOD_LALT, KC_DOWN), MT(MOD_RGUI, KC_UP),   XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS, XXXXXXX,        XXXXXXX, KC_APP, KC_HOME, KC_END,  KC_PGDN, KC_PGUP, XXXXXXX,
                                             XXXXXXX, KC_ESC, MO(3),   KC_SPC,        KC_BSPC, MO(3), NIKO_CHNG_LNG,  XXXXXXX
     ),
 
@@ -112,9 +112,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------.                    ,-----------------------------------------.
      * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|    |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|  F1  |  F2  |  F3  |  F4  |  F5  |------|    |------|  F6  |  F7  |  F8  |  F9  | F10  |XXXXXX|
+     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|------|    |------|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
-     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|------|    |------|  F11 |  F12 |XXXXXX|XXXXXX|XXXXXX|XXXXXX|
+     * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|------|    |------|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
      * |------+------+------+------+------+------|XXXXXX|    |XXXXXX|------+------+------+------+------+------|
      * |XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|------|    |------|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|XXXXXX|
      * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -125,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [3] = LAYOUT(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, 
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         XXXXXXX, MS_LEFT, MS_RGHT, MS_DOWN, MS_UP, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                             XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,        XXXXXXX, XXXXXXX, TO(4), XXXXXXX
     ),
