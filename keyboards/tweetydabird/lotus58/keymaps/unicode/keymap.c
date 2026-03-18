@@ -31,7 +31,7 @@ const uint16_t PROGMEM back_slash_combo[] = {RALT(KC_D), RALT(KC_F), COMBO_END};
 combo_t key_combos[] = {
     COMBO(b_softsign_combo, KC_RBRC),
     COMBO(ru_x_combo, KC_LBRC),
-    COMBO(ru_yo_combo, KC_QUOT),
+    COMBO(ru_yo_combo, KC_GRV),
     COMBO(back_slash_combo, RALT(KC_G))
 };
 
@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+------|      |    |      |------+------+------+------+------+------|
      * |XXXXXX|   *  |   -  |   +  |   =  |   ^  |------|    |------|   `  |  '   |   "  |   :  |   ;  |XXXXXX|
      * |------+------+------+------+------+------|XXXXXX|    |XXXXXX|------+------+------+------+------+------|
-     * |XXXXXX|   _  |XXXXXX|   &  |   |  |XXXXXX|------|    |------|   \  |  /   |   ,  |   .  |   ?  |XXXXXX|
+     * |XXXXXX|   _  ;|XXXXXX|   &  |   |  |XXXXXX|------|    |------|   \  |  /   |   ,  |   .  |   ?  |XXXXXX|
      * `-----------------------------------------/       /     \      \-----------------------------------------'
      *                  |XXXXXX|XXXXXX|XXXXXX| Space| /       /       \      \ | Bspc |XXXXXX| XXXXXX  |XXXXXX|
      *                  |      |      |      |      |/       /         \      \|      |      |         |      |
